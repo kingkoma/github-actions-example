@@ -22,5 +22,16 @@ jobs:
         java-version: 11
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    
     - name: Build with Gradle
       run: ./gradlew build
+
+
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        # Artifact name
+        name: artifact # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: /build/reports/tests/test/
